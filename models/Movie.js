@@ -29,7 +29,7 @@ const MovieSchema = new mongoose.Schema({
     plot: {
         type: String,
         minlength: 10,
-        maxlength: 150,
+        maxlength: 500,
         required: [true, 'Please enter the plot'],
     },
     createdBy: {

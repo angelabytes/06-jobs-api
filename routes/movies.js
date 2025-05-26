@@ -11,7 +11,7 @@ const {
 
 
 router.route('/').post(createMovie).get(getAllMovies);
-router.route(':/id').get(getMovie).delete(deleteMovie).patch(updateMovie);
+router.route('/:id').get(getMovie).delete(deleteMovie).patch(updateMovie);
 
 
 module.exports = router;
