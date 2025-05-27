@@ -40,7 +40,7 @@ app.use(cors());
 //   allowedHeaders: '*' // Allow all headers
 // }));
 app.use(xss());
-app.use('/api/v1/docs', swaggerUi .serve, swaggerUi.setup(swaggerDocs)); 
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
 
 
 
