@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,17 +15,20 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-rate-limit": "^7.1.5",
+    "express-sanitizer": "^1.0.6",
     "helmet": "^4.6.0",
     "http-status-codes": "^2.1.4",
     "joi": "^17.4.0",
     "jsonwebtoken": "^9.0.2",
     "rate-limiter": "^0.2.0",
-    "swagger-ui-express": "^4.1.6",
-    "yamljs": "^0.3.0"
+    "swagger-ui-express": "^4.6.3",
+    "yamljs": "^0.3.0",
+    "mongoose": "^8.15.0"
   },
   "devDependencies": {
-    "mongoose": "^8.15.0",
-    "nodemon": "^3.1.10",
-    "xss": "^1.0.15"
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
