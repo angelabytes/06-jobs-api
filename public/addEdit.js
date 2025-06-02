@@ -1,5 +1,3 @@
-// import { StatusCodes } from "http-status-codes";
-// import { set } from "mongoose";
 import { enableInput, inputEnabled, message, setDiv, token } from "./index.js";
 import { showMovies } from "./movies.js";
 
