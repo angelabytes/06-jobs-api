@@ -14,7 +14,7 @@ const app = express();
 //connectDB
 const connectDB = require('./db/connect');
 const authenticateUser = require('./middleware/authentication');
- 
+
 //routers
 const authRouter = require('./routes/auth');
 const moviesRouter = require('./routes/movies');
@@ -27,31 +27,36 @@ const swaggerDocs = require('./swagger/movie-api.json');
 
 app.set('trust proxy', 1);
 app.use(rateLimiter({
-    windowMs: 15 * 60 * 1000, //15 minutes
-    max: 100, //limit each IP to 100 requests per windowMs
-  })
+  windowMs: 15 * 60 * 1000, //15 minutes
+  max: 100, //limit each IP to 100 requests per windowMs
+})
 );
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
+
 // app.use(cors({
 //   origin: '*',
 //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 //   allowedHeaders: '*' // Allow all headers
 // }));
+
 app.use(xss());
-app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 
 // routes
-app.get('/', (req, res) => {
-  res.send('movies api');
-});
+
+// app.get('/', (req, res) => {
+//   res.send('<h1>Movies Review API</h1><a href="/api-docs">Documentation</a>');
+// });
+app.use(express.static("public"));
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/movies', authenticateUser, moviesRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
+
 
 const port = process.env.PORT || 3000;
 
